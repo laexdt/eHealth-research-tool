@@ -21,6 +21,10 @@ function MCOptions(props: Props) {
     };
     const handleCloseInfoModal = () => setShowInfoModal(false);
 
+    const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        props.onOptionChange(e);
+    };    
+
     return (
         <div className="options">
             {props.options.map((option, index) => {
@@ -32,8 +36,13 @@ function MCOptions(props: Props) {
                             name="option"
                             value={opt}
                             checked={props.selectedOptions.includes(opt)}
-                            onChange={props.onOptionChange}
+                            onChange={handleOptionChange}
                             className="form-check-input"
+                            disabled={
+                                props.selectedOptions.some((option) =>
+                                    option.includes("(cannot be selected with others)")
+                                ) && !opt.includes("(cannot be selected with others)")
+                            }
                         />
                         <label
                             className="form-check-label"

@@ -16,7 +16,7 @@ sectionEightRouter.get("/1/:language", (req: Request, res: Response) => {
         instructions:
             "Ask the participant to close their eyes with force for a few seconds.\nThen, ask them to smile showing their teeth.",
         question:
-            "Is the participant showing ASYMMETRY comparing left and right in the EYES, MOUTH, or BOTH during the completion of the task?",
+            "Is the participant able to perform correctly, comparing left and right in the EYES, MOUTH, or BOTH during the completion of the task, without showing ASYMMETRY?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1LDvk1Plhg94l5g5Qri-ISI_l4fknTTyi/view?usp=sharing",
@@ -61,9 +61,9 @@ sectionEightRouter.post("/1", (req: Request, res: Response) => {
         }
     );
 
-    if (req.body.answer === "Yes") {
+    if (req.body.answer === "No") {
         nextQuestionID = 2;
-    } else if (req.body.answer === "No") {
+    } else if (req.body.answer === "Yes") {
         nextQuestionID = 1;
         nextSectionID = "9";
         //1

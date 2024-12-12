@@ -113,20 +113,28 @@ function Quiz() {
         navigate(-1);
     }
 
-    const handleOptionsChange = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
+    const handleOptionsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const optionValue = event.target.value;
+        const isExclusive = optionValue.includes("(cannot be selected with others)");
+    
         setSelectedOptionsMC((prevSelectedOptions) => {
-            if (prevSelectedOptions.includes(optionValue)) {
-                // If the option is already selected, remove it
-                return prevSelectedOptions.filter(
-                    (option) => option !== optionValue
-                );
+            let updatedOptions;
+    
+            if (isExclusive) {
+                updatedOptions = event.target.checked ? [optionValue] : [];
             } else {
-                // If the option is not selected, add it
-                return [...prevSelectedOptions, optionValue];
+                if (event.target.checked) {
+                    updatedOptions = [...prevSelectedOptions, optionValue].filter(
+                        (option) => !option.includes("(cannot be selected with others)")
+                    );
+                } else {
+                    updatedOptions = prevSelectedOptions.filter(
+                        (option) => option !== optionValue
+                    );
+                }
             }
+    
+            return updatedOptions;
         });
     };
 

@@ -98,7 +98,7 @@ anamnesticRouter.get("/2/:language", (req: Request, res: Response) => {
         question:
             "In the past year, have you experienced, or has someone in your family or friends told you that they have noticed in you some kind of difficulty in SPEAKING?",
         answers: [
-            "No difficulty in speaking experienced by the participant or noticed by those close to them.",
+            "No difficulty in speaking experienced by the participant or noticed by those close to them. (cannot be selected with others)",
             "Yes, difficulty in speaking noticed by someone close to the participant",
             "Yes, difficulty in speaking experienced by the participant",
         ],

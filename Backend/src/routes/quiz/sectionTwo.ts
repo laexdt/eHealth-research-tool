@@ -15,7 +15,7 @@ sectionTwoRouter.get("/1/:language", (req: Request, res: Response) => {
         section: "2",
         instructions:
             "Ask the participant to touch the tip of their nose with the tip of both index fingers alternatively.\n Repeat at least ten times (five with each hand) with eyes open, and ten times with eyes closed.",
-        question: "Is the participant able to perform the task with EYES OPEN?",
+        question: "Is the participant able to precisely perform the task with EYES OPEN?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1jlzgcbMZn-LTAkkoe8np6tDxaFDW2BBk/view?usp=sharing",

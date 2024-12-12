@@ -22,7 +22,11 @@ const CircleComponent: React.FC<Props> = ({
     onGoBack,
 }) => {
     const handleClick = (circle: string, quadrant: string) => {
-        const option = `${circle} Eye - ${quadrant} Quadrant`;
+        const isHalf = quadrant.endsWith("Vision");
+        let option = `${circle} Eye - ${quadrant} Quadrant`;
+        if (isHalf) {
+            option = `${quadrant}`;
+        }
         let updatedOptions;
         if (selectedOptions.includes(option)) {
             updatedOptions = selectedOptions.filter(
@@ -50,16 +54,6 @@ const CircleComponent: React.FC<Props> = ({
                             onClick={() => handleClick("Right", "Top External")}
                         ></div>
                         <div
-                            className={`quadrant top-right ${
-                                selectedOptions.includes(
-                                    "Right Eye - Top Internal Quadrant"
-                                )
-                                    ? "clicked"
-                                    : ""
-                            }`}
-                            onClick={() => handleClick("Right", "Top Internal")}
-                        ></div>
-                        <div
                             className={`quadrant bottom-left ${
                                 selectedOptions.includes(
                                     "Right Eye - Bottom External Quadrant"
@@ -72,15 +66,13 @@ const CircleComponent: React.FC<Props> = ({
                             }
                         ></div>
                         <div
-                            className={`quadrant bottom-right ${
-                                selectedOptions.includes(
-                                    "Right Eye - Bottom Internal Quadrant"
-                                )
+                            className={`quadrant right-half ${
+                                selectedOptions.includes("Central Vision") 
                                     ? "clicked"
                                     : ""
                             }`}
                             onClick={() =>
-                                handleClick("Right", "Bottom Internal")
+                                handleClick("Right", "Central Vision")
                             }
                         ></div>
                     </div>
@@ -88,16 +80,6 @@ const CircleComponent: React.FC<Props> = ({
                 </div>
                 <div className="circle-wrapper">
                     <div className="circle">
-                        <div
-                            className={`quadrant top-left ${
-                                selectedOptions.includes(
-                                    "Left Eye - Top Internal Quadrant"
-                                )
-                                    ? "clicked"
-                                    : ""
-                            }`}
-                            onClick={() => handleClick("Left", "Top Internal")}
-                        ></div>
                         <div
                             className={`quadrant top-right ${
                                 selectedOptions.includes(
@@ -109,18 +91,6 @@ const CircleComponent: React.FC<Props> = ({
                             onClick={() => handleClick("Left", "Top External")}
                         ></div>
                         <div
-                            className={`quadrant bottom-left ${
-                                selectedOptions.includes(
-                                    "Left Eye - Bottom Internal Quadrant"
-                                )
-                                    ? "clicked"
-                                    : ""
-                            }`}
-                            onClick={() =>
-                                handleClick("Left", "Bottom Internal")
-                            }
-                        ></div>
-                        <div
                             className={`quadrant bottom-right ${
                                 selectedOptions.includes(
                                     "Left Eye - Bottom External Quadrant"
@@ -130,6 +100,16 @@ const CircleComponent: React.FC<Props> = ({
                             }`}
                             onClick={() =>
                                 handleClick("Left", "Bottom External")
+                            }
+                        ></div>
+                        <div
+                            className={`quadrant left-half ${
+                                selectedOptions.includes("Central Vision")
+                                    ? "clicked"
+                                    : ""
+                            }`}
+                            onClick={() =>
+                                handleClick("Left", "Central Vision")
                             }
                         ></div>
                     </div>

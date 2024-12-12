@@ -16,7 +16,7 @@ sectionOneARouter.get("/1/:language", (req: Request, res: Response) => {
         section: "1a",
         instructions:
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
-        question: "Is the participant able to REACH the position?",
+        question: "Is the participant able to REACH the position with both arms?",
         answers: ["Yes", "No"],
         title: "Mingazzini - Upper Limb",
         imageUrl:
@@ -152,7 +152,7 @@ sectionOneARouter.get("/3/:language", (req: Request, res: Response) => {
         instructions:
             "Ask the participant to stretch out their arms in front of their body, palms facing upward and eyes closed. If the participant reaches the position, ask them to maintain that position for five seconds.",
         question:
-            "Is the participant able to HOLD STEADILY the position for at least 5 seconds?",
+            "Is the participant able to HOLD STEADILY the position with both arms for at least 5 seconds?",
         answers: ["Yes", "No"],
         imageUrl:
             "https://drive.google.com/file/d/1vF4TzKgVP4mwGm1YmezGBeRGQ0pLt7kv/view?usp=sharing",
@@ -395,7 +395,7 @@ sectionOneARouter.get("/6/:language", (req: Request, res: Response) => {
         question: "",
         answers: [
             "One or both arms FALL DOWN within 5 seconds;https://drive.google.com/file/d/1f1UKI1oOqKcZbIp9tsRqlyRnvda6vQx3/view?usp=sharing;",
-            "One or both arms ROTATE (pronate);https://drive.google.com/file/d/174oLsdObQ0LVyTtP_51hMNwI1JTUIfe1/view?usp=sharing;",
+            "One or both arms ROTATE (pronate) or OSCILLATE;https://drive.google.com/file/d/174oLsdObQ0LVyTtP_51hMNwI1JTUIfe1/view?usp=sharing;",
         ],
         imageUrl: "",
         videoUrl: "",
@@ -439,7 +439,7 @@ sectionOneARouter.post("/6", (req: Request, res: Response) => {
     );
     if (req.body.answer === "One or both arms FALL DOWN within 5 seconds") {
         nextQuestionID = 9;
-    } else if (req.body.answer === "One or both arms ROTATE (pronate)") {
+    } else if (req.body.answer === "One or both arms ROTATE (pronate) or OSCILLATE") {
         nextQuestionID = 12;
     }
 

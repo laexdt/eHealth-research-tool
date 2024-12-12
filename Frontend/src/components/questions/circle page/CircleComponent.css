@@ -66,6 +66,20 @@
     border-bottom-right-radius: 50% 100%;
 }
 
+.quadrant.right-half {
+    width: 50%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+}
+
+.quadrant.left-half {
+    width: 50%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+
 .quadrant:hover {
     background-color: rgba(0, 0, 255, 0.8);
 }

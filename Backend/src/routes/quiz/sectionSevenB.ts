@@ -23,7 +23,7 @@ sectionSevenBRouter.get("/1/:language", (req: Request, res: Response) => {
         videoUrl:
             "https://drive.google.com/file/d/1lXedVuPkDnBLd8catzNv6fgSZQQkYoFR/view?usp=sharing",
         mc: true,
-        title: "Deep Sensetivity - Lower Limb",
+        title: "Deep Sensitivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -97,7 +97,7 @@ sectionSevenBRouter.get("/2/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Deep Sensetivity - Lower Limb",
+        title: "Deep Sensitivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -170,7 +170,7 @@ sectionSevenBRouter.get("/3/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Deep Sensetivity - Lower Limb",
+        title: "Deep Sensitivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -244,7 +244,7 @@ sectionSevenBRouter.get("/4/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Deep Sensetivity - Lower Limb",
+        title: "Deep Sensitivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);
@@ -318,7 +318,7 @@ sectionSevenBRouter.get("/5/:language", (req: Request, res: Response) => {
         imageUrl: "",
         videoUrl: "",
         mc: true,
-        title: "Deep Sensetivity - Lower Limb",
+        title: "Deep Sensitivity - Lower Limb",
     };
 
     res.status(200).json(nextQuery);

@@ -565,6 +565,371 @@ anamnesticRouter.get("/8/:language", (req: Request, res: Response) => {
 });
 
 anamnesticRouter.post("/8", (req: Request, res: Response) => {
+    let nextQuestionID = 9;
+    let nextSectionID = "anamnestic";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "SLOWNESS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+//Section anamnestic Question 9
+anamnesticRouter.get("/9/:language", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "9",
+        section: "anamnestic",
+        instructions: "",
+        question:
+            "Have you ever lost consciousness and experienced loss of bladder control or foam at the mouth?",
+        answers: ["No.", "Yes.", "I don't know."],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Anamnestic",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+anamnesticRouter.post("/9", (req: Request, res: Response) => {
+    let nextQuestionID = 10;
+    let nextSectionID = "anamnestic";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "LOST CONCIOUSNESS / BLADDER CONTROL / FOAM AT MOUTH", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+//Section anamnestic Question 10
+anamnesticRouter.get("/10/:language", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "10",
+        section: "anamnestic",
+        instructions: "",
+        question:
+            "Have you ever experienced absence(s) or sudden loss(es) of contact with the surroundings, for a short duration of time?",
+        answers: ["No.", "Yes.", "I don't know."],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Anamnestic",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+anamnesticRouter.post("/10", (req: Request, res: Response) => {
+    let nextQuestionID = 11;
+    let nextSectionID = "anamnestic";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "LOSS OF CONTACT WITH SURROUNDINGS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+//Section anamnestic Question 11
+anamnesticRouter.get("/11/:language", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "11",
+        section: "anamnestic",
+        instructions: "",
+        question:
+            "Have you ever experienced sudden, uncontrollable twitching or shaking of your arms, legs or head, for a period of a few minutes?",
+        answers: ["No.", "Yes.", "I don't know."],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Anamnestic",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+anamnesticRouter.post("/11", (req: Request, res: Response) => {
+    let nextQuestionID = 12;
+    let nextSectionID = "anamnestic";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "TWITCHING / SHAKING", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+//Section anamnestic Question 12
+anamnesticRouter.get("/12/:language", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "12",
+        section: "anamnestic",
+        instructions: "",
+        question:
+            "Do you sometimes experience sudden and brief bodily sensations, see or hear things that are not there, or smell strange odours?",
+        answers: ["No.", "Yes.", "I don't know."],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Anamnestic",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+anamnesticRouter.post("/12", (req: Request, res: Response) => {
+    let nextQuestionID = 13;
+    let nextSectionID = "anamnestic";
+
+    const data: saveQuery = {
+        uuid: req.body.id,
+        section: req.body.section,
+        q_id: req.body.q_id,
+        question: req.body.question,
+        answer: req.body.answer,
+    };
+    pool.query(
+        deleteOneData,
+        [data.uuid, data.section, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            pool.query(
+                addData,
+                [
+                    data.uuid,
+                    data.section,
+                    data.q_id,
+                    data.question,
+                    data.answer,
+                ],
+                (error, results) => {
+                    if (error) throw error;
+                }
+            );
+        }
+    );
+
+    pool.query(
+        deleteOneAnamnesticOutcome,
+        [data.uuid, data.q_id],
+        (error, results) => {
+            if (error) throw error;
+            if (data.answer.includes("Yes")) {
+                pool.query(
+                    addAnamnesticOutcome,
+                    [data.uuid, "SEEING THINGS / STRANGE ODOURS", data.q_id],
+                    (error, results) => {
+                        if (error) throw error;
+                    }
+                );
+            }
+        }
+    );
+
+    res.status(200).json({
+        nextQuestion: nextQuestionID,
+        nextSection: nextSectionID,
+    });
+});
+
+//Section anamnestic Question 13
+anamnesticRouter.get("/13/:language", (req: Request, res: Response) => {
+    const nextQuery: sendQuery = {
+        q_id: "13",
+        section: "anamnestic",
+        instructions: "",
+        question:
+            "Have you ever been told that you are suffering from epilepsy or that you have already had epileptic fits?",
+        answers: ["No.", "Yes.", "I don't know."],
+        imageUrl: "",
+        videoUrl: "",
+        mc: true,
+        title: "Anamnestic",
+    };
+
+    res.status(200).json(nextQuery);
+});
+
+anamnesticRouter.post("/13", (req: Request, res: Response) => {
     let nextQuestionID = 1;
     let nextSectionID = "42";
 
@@ -604,7 +969,7 @@ anamnesticRouter.post("/8", (req: Request, res: Response) => {
             if (data.answer.includes("Yes")) {
                 pool.query(
                     addAnamnesticOutcome,
-                    [data.uuid, "SLOWNESS", data.q_id],
+                    [data.uuid, "EPILEPTIC FITS", data.q_id],
                     (error, results) => {
                         if (error) throw error;
                     }

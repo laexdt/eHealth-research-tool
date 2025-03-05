@@ -4,5 +4,8 @@
   },
   "scripts": {
     "start": "docker-compose up"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9"
   }
 }

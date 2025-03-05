@@ -8,7 +8,9 @@ export const getAnamnesticOutcomes = async (
     id: string | undefined,
     setData: React.Dispatch<React.SetStateAction<AnamnesticOutcomes[]>>
 ) => {
-    const endpoint = `http://localhost:3000/anamnestic_outcomes/${id}`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/anamnestic_outcomes/${id}`;
     try {
         const response = await fetch(endpoint, {
             method: "GET",

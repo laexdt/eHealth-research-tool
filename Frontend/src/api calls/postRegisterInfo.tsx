@@ -4,7 +4,9 @@ export const postRegisterInfo = async (email: string, password: string) => {
         password: password,
     };
 
-    const endpoint = `http://localhost:3000/register`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/register`;
 
     try {
         const response = await fetch(endpoint, {

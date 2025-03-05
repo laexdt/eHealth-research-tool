@@ -3,7 +3,9 @@ export const postResearchCode = async (code: string) => {
         code: code,
     };
 
-    const endpoint = `http://localhost:3000/code`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/code`;
 
     try {
         const response = await fetch(endpoint, {

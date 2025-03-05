@@ -4,7 +4,9 @@ export const postLogin = async (email: string, password: string) => {
         password: password,
     };
 
-    const endpoint = `http://localhost:3000/login`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/login`;
 
     try {
         const response = await fetch(endpoint, {

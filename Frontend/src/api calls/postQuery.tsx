@@ -25,7 +25,9 @@ export const postQuery = async (
         answer: answer,
     };
 
-    const endpoint = `http://localhost:3000/queries/${section}/${q_id}`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/queries/${section}/${q_id}`;
 
     try {
         const response = await fetch(endpoint, {

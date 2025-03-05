@@ -11,7 +11,9 @@ export const getInfo = async (
     id: string | undefined,
     setInfo: React.Dispatch<React.SetStateAction<Info[]>>
 ) => {
-    const endpoint = `http://localhost:3000/info/${id}`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/info/${id}`;
     try {
         const response = await fetch(endpoint, {
             method: "GET",

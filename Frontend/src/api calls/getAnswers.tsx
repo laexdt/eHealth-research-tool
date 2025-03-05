@@ -9,7 +9,9 @@ export const getAnswers = async (
     id: string | undefined,
     setData: React.Dispatch<React.SetStateAction<Answers[]>>
 ) => {
-    const endpoint = `http://localhost:3000/answers/${id}`;
+    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
+    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const endpoint = `http://${backendHost}:${backendPort}/answers/${id}`;
     try {
         const response = await fetch(endpoint, {
             method: "GET",

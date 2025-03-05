@@ -1,0 +1,2 @@
+window.RUNTIME_CONFIG = window.RUNTIME_CONFIG || {};
+window.RUNTIME_CONFIG.BACKEND_HOST = "test";

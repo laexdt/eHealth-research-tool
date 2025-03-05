@@ -29,8 +29,7 @@ import screeningQuestionsRouter from "./src/routes/quiz/screening";
 dotenv.config();
 
 const app: Application = express();
-const host = window.RUNTIME_CONFIG.HOST || "localhost";
-const port = window.RUNTIME_CONFIG.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -65,5 +64,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is Fire at http://${host}:${port}`);
+    console.log(`Server is Fire at http://localhost:${port}`);
 });

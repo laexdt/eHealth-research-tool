@@ -9,8 +9,8 @@ export const getAnswers = async (
     id: string | undefined,
     setData: React.Dispatch<React.SetStateAction<Answers[]>>
 ) => {
-    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
-    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const backendHost = "neuroepitool-web-rug-nl-backend";
+    const backendPort = 3000;
     const endpoint = `http://${backendHost}:${backendPort}/answers/${id}`;
     try {
         const response = await fetch(endpoint, {

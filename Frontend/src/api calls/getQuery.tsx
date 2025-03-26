@@ -10,8 +10,8 @@ export const getQuery = async (
     setMc: React.Dispatch<React.SetStateAction<boolean>>,
     setTitle: React.Dispatch<React.SetStateAction<string>>
 ) => {
-    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
-    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const backendHost = "neuroepitool-web-rug-nl-backend";
+    const backendPort = 3000;
     const endpoint = `http://${backendHost}:${backendPort}/queries/${section}/${q_id}/${language}`;
 
     try {

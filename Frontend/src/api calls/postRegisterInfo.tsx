@@ -4,8 +4,8 @@ export const postRegisterInfo = async (email: string, password: string) => {
         password: password,
     };
 
-    const backendHost = window.RUNTIME_CONFIG.BACKEND_HOST || "localhost";
-    const backendPort = window.RUNTIME_CONFIG.BACKEND_PORT || 3000;
+    const backendHost = "neuroepitool-web-rug-nl-backend";
+    const backendPort = 3000;
     const endpoint = `http://${backendHost}:${backendPort}/register`;
 
     try {
